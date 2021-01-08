@@ -1,0 +1,23 @@
+<h1>New Participant</h1>
+<% if @participant.errors.present? %>
+<ul>
+<%@participant.errors.full_messages.each do |error|%>
+<li><%= error %></li>
+    <% end %>
+</ul>
+<% end %>
+<%= form_for(@participant, url: arm_participants_path(@arm.id)) do |f| %>
+  <p>
+  <%= f.label 'Name' %>
+  <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label 'Age' %>
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label 'Gender' %>
+    <%= f.text_field :gender %>
+  </p>
+  <%= f.submit 'Create' %>
+<% end %>

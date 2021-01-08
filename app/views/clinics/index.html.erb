@@ -1,0 +1,20 @@
+<h1> Show all CLINICS </h1>
+<%= link_to " add new clinic", new_clinic_path %>
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Location</th>
+</tr>
+<tr>
+<% @clinics.each do |clinic| %>
+    <td><%= clinic.id %></td>
+    <td><%= clinic.name %></td>
+    <td><%= clinic.location %></td>
+    <td><%= link_to "Delete",clinic, method: :delete %></td>
+    <td><%= link_to "Arms", clinic_arms_path(clinic.id) %></td>
+    </ br>
+</tr>
+<% end %>
+
+</table>

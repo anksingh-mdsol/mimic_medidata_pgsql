@@ -1,0 +1,22 @@
+<h1> Show All the arms </h1>
+<%= link_to "Clinics List", clinics_path %>
+<%= link_to "Create new arm", new_clinic_arm_path %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Limit</th>
+    <th>Clinic Name</th>
+  </tr>
+  <% @arms.each do |arm| %>
+    <tr>
+      <td><%= arm.id %></td>
+      <td><%= arm.name %></td>
+      <td><%= arm.limit %></td>
+      <td><%= arm.clinic.name if arm.clinic %></td>
+      <td><%= link_to "Delete",arm, method: :delete %></td>
+      <td><%= link_to "Participants", arm_participants_path(arm.id) %></td>
+      </ br>
+    </tr>
+  <% end %>
+</table>

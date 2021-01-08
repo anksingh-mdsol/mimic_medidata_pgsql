@@ -1,0 +1,19 @@
+<h1> New arm</h1>
+<% if @doctor.errors.present? %>
+<ul>
+<%@doctor.errors.full_messages.each do |error|%>
+<li><%= error %></li>
+    <% end %>
+</ul>
+<% end %>
+<%= form_with(model: @doctor, local: true) do |f| %>
+<p>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %>
+    </p>
+    <p>
+    <%= f.label "Specification" %>
+    <%= f.text_field :specification %>
+    </p>
+    <%= f.submit 'Create' %>
+<%end%>

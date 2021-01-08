@@ -1,0 +1,27 @@
+<h1> Show all Participants </h1>
+<%= link_to "Arms_List",clinic_arms_path(@arm.clinic.id)%>
+<%= link_to "Create new participant", new_arm_participant_path(@arm.id) %>
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+<th>Arm Name</th>
+</tr>
+
+<% @participants.each do |participant| %>
+<tr>
+    <td><%= participant.id %></td>
+    <td><%= participant.name %></td>
+    <td><%= participant.age %></td>
+    <td><%= participant.gender %></td>
+    <td><%= participant.arm.name if participant.arm %></td>
+    <td><%= link_to "Edit Participant", edit_arm_participant_path(@arm.id, participant.id) %></td>
+    <td><%= link_to "Delete Participant", participant, method: :delete%></td>
+    
+    </ br>
+</tr>
+<% end %>
+
+</table>
